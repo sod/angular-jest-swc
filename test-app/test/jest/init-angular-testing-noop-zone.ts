@@ -1,8 +1,8 @@
-import {globalObject} from './global-object';
-
-declare const global: Window & {environment: {test?: boolean}; environment_ssr?: boolean; environment_browser?: boolean};
-
-function initAngularTestEnvironmentNoopZone() {
+/**
+ * Allows to run unit tests without zone.js - it immediately invokes all method calls
+ * into global.Zone and initialized TestBed with NoopNgZone
+ */
+export function initAngularTestEnvironmentNoopZone() {
     const noop = () => {};
     const identity = (value: unknown) => value;
     const Zone = {
@@ -34,21 +34,4 @@ function initAngularTestEnvironmentNoopZone() {
         BrowserDynamicTestingModule,
         platformBrowserDynamicTesting([{provide: NgZone, useValue: new ɵNoopNgZone()}]),
     );
-}
-
-export function initGlobalVariables(): void {
-    globalObject.environment_ssr = undefined;
-    globalObject.environment_browser = true;
-    globalObject.environment = {
-        test: true,
-    };
-
-    globalObject.ryInject = {} as any;
-
-    Object.defineProperty(global, 'dataLayer', {value: []});
-}
-
-export function initAngularTestingNoopZone() {
-    initAngularTestEnvironmentNoopZone();
-    initGlobalVariables();
 }

@@ -1,3 +1,10 @@
+/**
+ * Uses jest.mock to wrap the `Component` annotation to replace `templateUrl` and `styleUrls` at runtime.
+ * Uses node.js require to resolve the paths. Ensure to configure transformers for all the extensions you use
+ * in components. E.g. html, css, scss, less ...
+ *
+ * See `file-transformer.js` as an example.
+ */
 function getContentsRelativeFromOrigin(filename: string | undefined, depth: number) {
     let path = '.';
 

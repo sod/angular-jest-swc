@@ -1,5 +1,5 @@
 import {enableJestAngularComponentSupport} from "test/jest/component-support";
-import {initAngularTestingNoopZone} from "test/jest/init-angular-testing-noop-zone";
+import {initAngularTestEnvironmentNoopZone} from "test/jest/init-angular-testing-noop-zone";
 
-initAngularTestingNoopZone();
+initAngularTestEnvironmentNoopZone();
 enableJestAngularComponentSupport();

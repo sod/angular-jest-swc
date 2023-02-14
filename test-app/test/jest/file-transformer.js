@@ -1,4 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/**
+ * convert files by extension into javascript
+ */
+
 const swcNodeJest = require('@swc-node/jest');
 
 module.exports = {
